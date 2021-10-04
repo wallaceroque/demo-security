@@ -1,0 +1,32 @@
+server:
+  port: 8081
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+#    org.springframework.boot.autoconfigure: DEBUG
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: demo-security
+            client-secret: 18a380c2-67c9-4ee0-8634-fa697e51f999
+            redirect-uri: http://localhost:8081/login/oauth2/code/keycloak
+            scope: openid+profile+email
+        provider:
+          keycloak:
+            authorization-uri: http://localhost:8080/auth/realms/master/protocol/openid-connect/auth
+            token-uri: http://localhost:8080/auth/realms/master/protocol/openid-connect/token
+            jwk-set-uri: http://localhost:8080/auth/realms/master/protocol/openid-connect/certs
+            user-info-uri: http://localhost:8080/auth/realms/master/protocol/openid-connect/userinfo
+            userNameAttribute: preferred_username
+            
+            
+            
+      
+        
